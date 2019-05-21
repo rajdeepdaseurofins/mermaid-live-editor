@@ -1,0 +1,22 @@
+graph LR;
+linkStyle default interpolate linear;
+%%basis,linear,step as a line types%%;
+style S fill:#f9f,stroke:#333,stroke-width:4px
+
+S[Share_Assingment] --- User_A;
+S --- User_B;
+S --- User_C;
+subgraph Team one;
+User_A[fa:fa-user Alice] -->| Member of | TA1(Team_Access_Group 1);
+User_B[fa:fa-user Bob] -->| Member of | TA1;
+TA1 --> |Member of |RG1(Resource Group 1);
+RG1-->|provide permissions|Sh1[Team Share 1];
+TA1-->|provide scope for drive T:| Sh1;
+end;
+subgraph Team two;
+User_B -->|Member of | RG2;
+User_C[fa:fa-user Charlie] -->|Member of | TA2(Team_Access_Group 2);
+TA2 -->|Member of |RG2(Resource Group 2);
+RG2-->|provide permissions|Sh2[Team Share 2];
+TA2-->|provide scope for drive T:| Sh2;
+end;
